@@ -8,6 +8,7 @@ depends:
 - components/jansson.bst
 - components/libajantv2.bst
 - components/libdatachannel.bst
+- components/libfdk-aac.bst
 - components/libqrcodegencpp.bst
 - components/librist.bst
 - components/luajit.bst
