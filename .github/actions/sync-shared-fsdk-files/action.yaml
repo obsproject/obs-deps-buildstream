@@ -36,6 +36,12 @@ runs:
         cp freedesktop-sdk/include/strip.yml include/strip.yml
         sed -i "s/strip-binaries/strip-binaries-base/g" include/strip.yml
 
+        cp freedesktop-sdk/elements/include/ffmpeg.yml elements/include/ffmpeg.yml
+        sed -i '/public:/,/^$/d' elements/include/ffmpeg.yml
+        sed -i '/sources:/,/^$/d' elements/include/ffmpeg.yml
+        sed -i 's|public-stacks/|freedesktop-sdk.bst:public-stacks/|g' elements/include/ffmpeg.yml
+        sed -i 's|components/|freedesktop-sdk.bst:components/|g' elements/include/ffmpeg.yml
+
         tag="${{ steps.parse-ref.outputs.tag }}"
         prefix="freedesktop-sdk-"
         version="${tag#$prefix}"

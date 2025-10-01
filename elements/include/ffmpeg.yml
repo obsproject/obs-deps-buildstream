@@ -3,6 +3,12 @@ build-depends:
 - freedesktop-sdk.bst:components/vulkan-headers.bst
 - freedesktop-sdk.bst:public-stacks/buildsystem-autotools.bst
 
+(?):
+- target_arch in ["x86_64", "i686", "aarch64", "ppc64le"]:
+    build-depends:
+      (>):
+      - freedesktop-sdk.bst:components/nv-codec-headers.bst
+
 depends:
 - freedesktop-sdk.bst:public-stacks/runtime-minimal.bst
 - freedesktop-sdk.bst:components/dav1d.bst
@@ -40,6 +46,12 @@ variables:
   optimize-debug: "false"
   arch-conf: ''
   ffmpeg-arch: '%{arch}'
+  (?):
+  - target_arch == "i686":
+      ffmpeg-arch: x86
+  - target_arch in ["x86_64", "i686", "aarch64", "ppc64le"]:
+      arch-conf: >-
+        --enable-ffnvcodec
 
   conf-local: >-
     --prefix="%{prefix}"
@@ -93,3 +105,4 @@ variables:
 config:
   configure-commands:
   - ./configure %{conf-local} %{conf-extra} %{arch-conf}
+
