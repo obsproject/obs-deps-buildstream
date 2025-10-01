@@ -53,36 +53,12 @@ jobs:
             echo "changed=true" >> $GITHUB_OUTPUT
           fi
 
-      - name: Parse the new ref
-        id: parse-ref
-        if: ${{ fromJSON(steps.check.outputs.changed) }}
-        shell: bash
-        run: |
-          python .github/scripts/parse-bst-git-tag-ref.py elements/${{ env.ELEMENT }}
-
       - name: Sync shared files
         id: sync
         if: ${{ fromJSON(steps.check.outputs.changed) }}
-        shell: bash
-        run: |
-          git clone --branch=${{ steps.parse-ref.outputs.tag }} --depth=1 https://gitlab.com/freedesktop-sdk/freedesktop-sdk
-
-          for file in elements/plugins/*; do
-            if [ -f "freedesktop-sdk/$file" ]; then
-              cp freedesktop-sdk/$file $file
-            else
-              rm $file
-            fi
-          done
-
-          cp freedesktop-sdk/include/strip.yml include/strip.yml
-          sed -i "s/strip-binaries/strip-binaries-base/g" include/strip.yml
-
-          tag="${{ steps.parse-ref.outputs.tag }}"
-          prefix="freedesktop-sdk-"
-          version="${tag#$prefix}"
-
-          echo "version=$version" >> $GITHUB_OUTPUT
+        uses: ./.github/actions/sync-shared-fsdk-files
+        with:
+          fsdk-element: ${{ env.ELEMENT }}
 
       - name: Create pull request
         if: ${{ fromJSON(steps.check.outputs.changed) }}

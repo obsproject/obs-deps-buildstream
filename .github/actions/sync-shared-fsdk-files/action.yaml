@@ -1,0 +1,45 @@
+name: Sync shared Freedesktop SDK files
+inputs:
+  fsdk-element:
+    description: Freedesktop SDK BuildStream element
+    default: freedesktop-sdk.bst
+outputs:
+  fsdk-element:
+    description: Freedesktop SDK BuildStream element
+    value: ${{ inputs.fsdk-element }}
+  version:
+    description: Version of Freedesktop SDK
+    value: ${{ steps.sync.outputs.version }}
+runs:
+  using: composite
+  steps:
+    - name: Parse ref
+      id: parse-ref
+      shell: bash
+      run: |
+        python .github/scripts/parse-bst-git-tag-ref.py elements/${{ inputs.fsdk-element }}
+
+    - name: Sync shared files
+      id: sync
+      shell: bash
+      run: |
+        git clone --branch=${{ steps.parse-ref.outputs.tag }} --depth=1 https://gitlab.com/freedesktop-sdk/freedesktop-sdk
+
+        for file in elements/plugins/*; do
+          if [ -f "freedesktop-sdk/$file" ]; then
+            cp freedesktop-sdk/$file $file
+          else
+            rm $file
+          fi
+        done
+
+        cp freedesktop-sdk/include/strip.yml include/strip.yml
+        sed -i "s/strip-binaries/strip-binaries-base/g" include/strip.yml
+
+        tag="${{ steps.parse-ref.outputs.tag }}"
+        prefix="freedesktop-sdk-"
+        version="${tag#$prefix}"
+
+        echo "version=$version" >> $GITHUB_OUTPUT
+
+        rm -rf freedesktop-sdk

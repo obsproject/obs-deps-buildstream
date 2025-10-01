@@ -29,3 +29,37 @@ jobs:
         uses: astral-sh/ruff-action@v3
         with:
           args: "format --check"
+
+  fsdk:
+    name: Re-sync Freedesktop SDK shared files
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Check for Changed Files
+        id: check
+        uses: obsproject/obs-studio/.github/actions/check-changes@19646f9434857120625524fbf15f254efa1afecc
+        with:
+          checkGlob: "'${{ env.WORKFLOW_FILEPATH }}' 'elements/plugins/*' 'elements/freedesktop-sdk.bst' 'include/strip.yml'"
+          diffFilter: 'ACM'
+
+      - name: Sync shared files
+        id: sync
+        if: ${{ fromJSON(steps.check.outputs.hasChangedFiles) }}
+        uses: ./.github/actions/sync-shared-fsdk-files
+
+      - name: Check if files have changed
+        if: ${{ !cancelled() && fromJSON(steps.check.outputs.hasChangedFiles) }}
+        shell: bash
+        run: |
+          : Check if the element has changed
+
+          if [[  -z "$(git status --porcelain)" ]]; then
+            echo "::notice::Files are in sync"
+          else
+            echo "::error::Files are not in sync"
+            exit 2
+          fi
