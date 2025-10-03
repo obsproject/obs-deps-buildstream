@@ -10,6 +10,14 @@ variables:
     -DBUILD_MAN_DOCS:BOOL=OFF
     -DBUILD_QTHELP_DOCS:BOOL=OFF
 
+public:
+  bst:
+    split-rules:
+      devel:
+        (>):
+        - "%{datadir}/ECM"
+        - "%{datadir}/ECM/**"
+
 sources:
 - kind: git_repo
   url: github:KDE/extra-cmake-modules.git
