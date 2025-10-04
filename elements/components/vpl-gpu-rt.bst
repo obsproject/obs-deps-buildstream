@@ -23,7 +23,7 @@ public:
 sources:
 - kind: git_repo
   url: github:intel/vpl-gpu-rt.git
-  track: intel-onevpl-24.4.4
-  ref: 7277c25ec5362e92d2fa334e2ce356c473ba4778
+  track: intel-onevpl-25.3.4
+  ref: 4d4dde354660ec1cd9fafea415a09f1577c61e2a
 - kind: patch
   path: patches/vpl-gpu-rt/010-vpl-gpu-rt-disable-verbose-makefile.patch
