@@ -31,5 +31,5 @@ public:
 sources:
 - kind: git_repo
   url: github:intel/libvpl.git
-  track: v2.14.0
-  ref: 025d43d086a3e663184cb49febe86152bf05409f
+  track: v2.15.0
+  ref: c45b5d786bf7cdabbe49ff1bab78693ad78feb78
