@@ -6,7 +6,7 @@ sources:
   # Update include/strip.yml, elements/include/ffmpeg.yml and elements/plugins if bumping Freedesktop SDK release branch
   track: release/25.08
   track-tags: True
-  ref: freedesktop-sdk-25.08.1-0-g3405120e658f2e84c594aeedff456e16a1a2b185
+  ref: freedesktop-sdk-25.08.2-0-g2772ab3c978ca761082aa428a9d47eee04650072
 
 config:
   options:
