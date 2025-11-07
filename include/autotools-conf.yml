@@ -1,19 +1,23 @@
 variables:
   build-dir: _builddir
-
+  conf-link-args: |
+    --enable-shared \
+    --disable-static
   conf-host: |
     --host=%{triplet}
   conf-build: |
     --build=%{triplet}
+  conf-libtool-force-dlsearch: |
+    lt_cv_sys_lib_dlsearch_path_spec="/usr/lib/%{gcc_triplet}"
 
   remove-libtool-modules: "true"
   remove-libtool-libraries: "true"
 
   conf-global: >-
-    --enable-shared
-    --disable-static
-    %{conf-build}
-    %{conf-host}
+      %{conf-link-args}
+      %{conf-build}
+      %{conf-host}
+      %{conf-libtool-force-dlsearch}
   conf-cmd: configure
 
 config:
