@@ -5,4 +5,4 @@ build-depends:
 - qt.bst
 
 config:
-  path: "/app/qt.json"
+  path: "%{prefix}/%{project-name}-qt.json"

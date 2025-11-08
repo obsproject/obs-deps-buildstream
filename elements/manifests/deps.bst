@@ -5,4 +5,4 @@ build-depends:
 - deps.bst
 
 config:
-  path: "/app/deps.json"
+  path: "%{prefix}/%{project-name}-deps.json"
