@@ -13,6 +13,8 @@ depends:
   - components/qt/base.bst
 
 variables:
+  qt-element-name: imageformats
+
   cmake-local: >-
     -DFEATURE_jasper=OFF
     -DFEATURE_mng=OFF
@@ -23,6 +25,6 @@ variables:
 
 sources:
 - kind: tar
-  url: 
+  url:
     qt_archive:%{qt-api-version}/%{qt-version}/submodules/qtimageformats-everywhere-src-%{qt-version}.tar.xz
   ref: d2a1bbb84707b8a0aec29227b170be00f04383fbf2361943596d09e7e443c8e1

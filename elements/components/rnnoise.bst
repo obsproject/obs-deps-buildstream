@@ -7,6 +7,10 @@ depends:
 - freedesktop-sdk.bst:public-stacks/runtime-minimal.bst
 
 variables:
+  license-files-extra: >-
+    README
+    AUTHORS
+
   conf-local: >-
     --disable-doc
     --disable-examples
@@ -14,9 +18,11 @@ variables:
 config:
   install-commands:
     (>):
-    # Delete the installed README
+    # Delete duplicate license files
     - |
-      rm -f '%{install-root}%{datadir}/doc/rnnoise/README'
+      set -euo pipefail # Force bash
+      rm -f "%{install-root}%{datadir}/doc/rnnoise/"{README,AUTHORS,COPYING}
+      rmdir --ignore-fail-on-non-empty "%{install-root}%{datadir}/doc"{/rnnoise,}
 
 public:
   bst:
