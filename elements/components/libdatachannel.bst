@@ -18,6 +18,14 @@ variables:
     -DNO_EXAMPLES=ON
     -DNO_TESTS=ON
 
+public:
+  bst:
+    split-rules:
+      # Put the examples licenses as extra
+      extra:
+      - "%{project_licensedir}/libdatachannel/examples"
+      - "%{project_licensedir}/libdatachannel/examples/**"
+
 sources:
 - kind: git_repo
   url: github:paullouisageneau/libdatachannel.git

@@ -5,8 +5,13 @@ depends:
 - freedesktop-sdk.bst:public-stacks/runtime-minimal.bst
 
 variables:
+  qt-element-name: unknown
   qt-api-version: "6.8"
   qt-version: "6.8.2"
+
+  license-element-name: "qt-%{qt-element-name}"
+  # NOTE: This is similar to what KDE does for their runtime
+  license-files-final: "LICENSES/*.txt"
 
   qt-bindir: "%{bindir}"
   qt-includedir: "%{includedir}/qt"

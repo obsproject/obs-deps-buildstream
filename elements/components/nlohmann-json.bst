@@ -6,6 +6,12 @@ build-depends:
 variables:
   cmake-local: -DJSON_BuildTests=OFF
 
+config:
+  install-commands:
+    (>):
+    # Delete documentation about licensing picked by install-extra
+    - rm -rf "%{install-root}%{project_licensedir}/nlohmann-json/docs"
+
 sources:
 - kind: git_repo
   url: github:nlohmann/json.git

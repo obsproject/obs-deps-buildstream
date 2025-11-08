@@ -7,12 +7,20 @@ depends:
 - freedesktop-sdk.bst:public-stacks/runtime-minimal.bst
 
 variables:
+  license-files-extra: third-party-programs.txt
+
   cmake-local: >-
     -DBUILD_SHARED_LIBS=ON
     -DENABLE_LIBDIR_IN_RUNTIME_SEARCH=ON
     -DINSTALL_DEV=ON
     -DBUILD_EXPERIMENTAL=OFF
     -DBUILD_EXAMPLES=OFF
+
+config:
+  install-commands:
+    (>):
+    # Delete duplicate license files
+    - rm -rf "%{install-root}%{datadir}/vpl/licensing"
 
 public:
   bst:
@@ -23,6 +31,8 @@ public:
       - "%{sysconfdir}/**"
       - "%{datadir}/vpl/examples"
       - "%{datadir}/vpl/examples/**"
+      - "%{project_licensedir}/libvpl/examples"
+      - "%{project_licensedir}/libvpl/examples/**"
       runtime:
         (>):
         - "%{datadir}"

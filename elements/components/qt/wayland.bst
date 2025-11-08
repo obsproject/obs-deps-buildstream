@@ -13,6 +13,8 @@ depends:
   - components/qt/base.bst
 
 variables:
+  qt-element-name: wayland
+
   cmake-local: >-
     -DFEATURE_wayland_client=ON
     -DFEATURE_wayland_server=OFF
