@@ -262,6 +262,5 @@ variables:
 
 sources:
 - kind: tar
-  url:
-    qt_archive:%{qt-api-version}/%{qt-version}/submodules/qtbase-everywhere-src-%{qt-version}.tar.xz
-  ref: 012043ce6d411e6e8a91fdc4e05e6bedcfa10fcb1347d3c33908f7fdd10dfe05
+  url: qt_archive:%{qt-api-version}/%{qt-version}/submodules/qtbase-everywhere-src-%{qt-version}.tar.xz
+  ref: 383dc907816338f0cba72088a524c07458dfc69ce684ca9132fcc4fe91c24b0b
