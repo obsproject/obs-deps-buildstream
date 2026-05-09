@@ -43,17 +43,9 @@ public:
 sources:
 - kind: git_repo
   url: github:FFmpeg/FFmpeg.git
-  track: n7.1.1
-  ref: db69d06eeeab4f46da15030a80d539efb4503ca8
+  track: n8.1
+  ref: 9047fa1b084f76b1b4d065af2d743df1b40dfb56
 - kind: patch
   path: patches/ffmpeg/0001-flvdec-handle-unknown.patch
 - kind: patch
   path: patches/ffmpeg/0002-libaomenc-presets.patch
-- kind: patch
-  path: patches/ffmpeg/0010-lavc-vaapi_encode-Query-surface-alignment.patch
-- kind: patch
-  path: patches/ffmpeg/0011-lavc-vaapi_encode_h265-Use-surface-alignment.patch
-- kind: patch
-  path: patches/ffmpeg/0012-posix-ioctl-hack.patch
-- kind: patch
-  path: patches/ffmpeg/0013-svt-av1-v3.patch
