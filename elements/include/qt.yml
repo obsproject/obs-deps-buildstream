@@ -6,8 +6,8 @@ depends:
 
 variables:
   qt-element-name: unknown
-  qt-api-version: "6.8"
-  qt-version: "6.8.2"
+  qt-api-version: "6.10"
+  qt-version: "6.10.3"
 
   license-element-name: "qt-%{qt-element-name}"
   # NOTE: This is similar to what KDE does for their runtime

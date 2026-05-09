@@ -5,4 +5,3 @@ depends:
 - components/qt/base.bst
 - components/qt/imageformats.bst
 - components/qt/svg.bst
-- components/qt/wayland.bst
