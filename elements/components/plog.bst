@@ -9,5 +9,5 @@ variables:
 sources:
 - kind: git_repo
   url: github:SergiusTheBest/plog.git
-  track: 1.1.10
+  track: 1.1.11
   ref: e21baecd4753f14da64ede979c5a19302618b752
