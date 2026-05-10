@@ -21,5 +21,5 @@ public:
 sources:
 - kind: git_repo
   url: github:KDE/extra-cmake-modules.git
-  track: v6.13.0
-  ref: 1f820dc98d0a520c175433bcbb0098327d82aac6
+  track: v6.26.0
+  ref: a1dac86d6c848473d840b748b82694ef6916a3ca
