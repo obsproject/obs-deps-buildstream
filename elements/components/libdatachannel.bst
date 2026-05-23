@@ -29,5 +29,5 @@ public:
 sources:
 - kind: git_repo
   url: github:paullouisageneau/libdatachannel.git
-  track: v0.21.1
-  ref: 898bdffe7340134f0891633cc7a6f6d2132c31c3
+  track: v0.24.2
+  ref: 4e4f4892dccb2a57fe3a490d0c9d958de4244e74
