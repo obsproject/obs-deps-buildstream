@@ -16,5 +16,5 @@ sources:
   url: github:nayuki/QR-Code-generator/archive/refs/tags/v%{qrcodegen-version}.tar.gz
   ref: 2ec0a4d33d6f521c942eeaf473d42d5fe139abcfa57d2beffe10c5cf7d34ae60
 - kind: tar
-  url: github:EasyCoding/qrcodegen-cmake/archive/refs/tags/v%{qrcodegen-version}-cmake3.tar.gz
-  ref: 2037b0596e5651ce020f4d36e958d24672dbee75631bdb09ae8a45659121f4d0
+  url: github:EasyCoding/qrcodegen-cmake/archive/refs/tags/v%{qrcodegen-version}-cmake4.tar.gz
+  ref: b576111a224aa34811c81a03d8c30a13d7a048f085276b0ae87509cbf52b5ace
