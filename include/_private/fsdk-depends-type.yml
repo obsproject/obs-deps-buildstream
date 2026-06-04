@@ -1,0 +1,9 @@
+type: "all" # Default type
+(?):
+  # While building dependencies for the Flatpak we do not require runtime
+  # dependency on the Freedesktop SDK junction since it is swapped for its
+  # Flatpak when consuming this projects tarballs.
+  # If a component requires another components dependencies it might need to be added
+  # conditionally to the concerned component.
+  - platform == "flatpak":
+      type: build

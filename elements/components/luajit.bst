@@ -5,7 +5,10 @@ build-depends:
 - freedesktop-sdk.bst:components/git-minimal.bst
 
 depends:
-- freedesktop-sdk.bst:public-stacks/runtime-minimal.bst
+- junction: freedesktop-sdk.bst
+  (@): include/_private/fsdk-depends-type.yml
+  filename:
+  - public-stacks/runtime-minimal.bst
 
 variables:
   # Build amalgamation as shared library without early stripping

@@ -4,7 +4,10 @@ build-depends:
 - freedesktop-sdk.bst:public-stacks/buildsystem-autotools.bst
 
 depends:
-- freedesktop-sdk.bst:public-stacks/runtime-minimal.bst
+- junction: freedesktop-sdk.bst
+  (@): include/_private/fsdk-depends-type.yml
+  filename:
+  - public-stacks/runtime-minimal.bst
 
 sources:
 - kind: git_repo

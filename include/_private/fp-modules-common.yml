@@ -1,0 +1,4 @@
+(?):
+- platform != "flatpak":
+    (!): |
+      This element is not buildable for non-flatpak platform.

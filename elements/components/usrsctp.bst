@@ -4,7 +4,10 @@ build-depends:
 - freedesktop-sdk.bst:public-stacks/buildsystem-cmake.bst
 
 depends:
-- freedesktop-sdk.bst:public-stacks/runtime-minimal.bst
+- junction: freedesktop-sdk.bst
+  (@): include/_private/fsdk-depends-type.yml
+  filename:
+  - public-stacks/runtime-minimal.bst
 
 variables:
   # Disable SCTP IP code. Packets are handled by WebRTC so we don't need it
