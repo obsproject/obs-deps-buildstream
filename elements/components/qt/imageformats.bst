@@ -1,7 +1,7 @@
 kind: cmake
 
 (@):
-- elements/include/qt.yml
+- elements/include/_private/qt.yml
 - elements/include/_private/depends-qtbase.bst.yml
 
 build-depends:
