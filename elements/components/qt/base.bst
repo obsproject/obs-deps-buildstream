@@ -1,7 +1,7 @@
 kind: cmake
 
 (@):
-- elements/include/qt.yml
+- elements/include/_private/qt.yml
 - elements/include/_private/qtbase-depends.yml
 
 # NOTE: Qt plugin-only dependencies should be put as build dependencies

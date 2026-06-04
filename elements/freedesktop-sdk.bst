@@ -7,7 +7,7 @@ sources:
   # - elements variables in project.conf
   # - include/autotools-conf.yml
   # - include/strip.yml
-  # - elements/include/ffmpeg.yml
+  # - elements/include/_private/ffmpeg.yml
   # - Common plugins in elements/plugins
   track: release/25.08
   track-tags: True

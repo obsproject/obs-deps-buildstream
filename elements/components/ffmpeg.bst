@@ -2,7 +2,7 @@ kind: make
 description: FFmpeg component based on Freedesktop SDK version
 
 (@):
-- elements/include/ffmpeg.yml
+- elements/include/_private/ffmpeg.yml
 
 build-depends:
   (>):
