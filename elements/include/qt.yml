@@ -16,7 +16,10 @@ variables:
   qt-bindir: "%{bindir}"
   qt-includedir: "%{includedir}/qt"
   qt-libdir: "%{libdir}"
+  # TODO(Qt 6.11): qt-cmakedir: "%{qt-libdir}/cmake"
   qt-mkspecsdir: "%{libdir}/qt/mkspecs"
+  qt-sharedir: "%{datadir}"
+  qt-qt-sharedir: "%{qt-sharedir}/qt"
   qt-archdatadir: "%{libdir}/qt"
   qt-pluginsdir: "%{qt-archdatadir}/plugins"
   qt-libexecdir: "%{libexecdir}/qt"
@@ -28,6 +31,7 @@ variables:
   qt-examplesdir: "%{datadir}/qt/examples"
   qt-testsdir: "%{datadir}/qt/tests"
   qt-descriptionsdir: "%{qt-archdatadir}/modules"
+  qt-sbomdir: "%{qt-archdatadir}/sbom"
 
 public:
   bst:
