@@ -120,7 +120,7 @@ jobs:
         modules: ${{ fromJson(inputs.modules) }}
     name: Generate ${{ matrix.modules }} Flatpak Module (${{ inputs.arch }})
     env:
-      ELEMENT: flatpak-modules/${{ matrix.modules }}-tarball.bst
+      ELEMENT: flatpak-modules/${{ matrix.modules }}.bst
       FILENAME: flatpak-${{ matrix.modules }}-${{ inputs.arch }}
     steps:
       - name: Checkout
