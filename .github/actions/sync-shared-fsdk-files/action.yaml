@@ -38,10 +38,15 @@ runs:
         sed -i "s/strip-binaries/strip-binaries-base/g" include/strip.yml
 
         cp freedesktop-sdk/elements/include/ffmpeg.yml elements/include/ffmpeg.yml
+        # Remove public object
         sed -i '/public:/,/^$/d' elements/include/ffmpeg.yml
+        # Remove sources object
         sed -i '/sources:/,/^$/d' elements/include/ffmpeg.yml
-        sed -i 's|public-stacks/|freedesktop-sdk.bst:public-stacks/|g' elements/include/ffmpeg.yml
-        sed -i 's|components/|freedesktop-sdk.bst:components/|g' elements/include/ffmpeg.yml
+        # Apply junction name to build-depends deps
+        sed -i -E '0,/^depends:/s%(components|public-stacks)/%freedesktop-sdk.bst:&%g' elements/include/ffmpeg.yml
+        # Apply junction name with our type include to depends deps
+        sed -i -e '/^depends:/a\-\ junction:\ freedesktop-sdk.bst\n  (@): include/_private/fsdk-depends-type.yml\n  filename:' \
+          -e '/^depends:/,/^$/s/- /  &/g' elements/include/ffmpeg.yml
 
         tag="${{ steps.parse-ref.outputs.tag }}"
         prefix="freedesktop-sdk-"

@@ -2,10 +2,7 @@ kind: cmake
 
 (@):
 - elements/include/qt.yml
-
-depends:
-  (>):
-  - components/qt/base.bst
+- elements/include/_private/depends-qtbase.bst.yml
 
 variables:
   qt-element-name: svg

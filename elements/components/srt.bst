@@ -4,7 +4,10 @@ build-depends:
 - freedesktop-sdk.bst:public-stacks/buildsystem-cmake.bst
 
 depends:
-- freedesktop-sdk.bst:components/openssl.bst
+- junction: freedesktop-sdk.bst
+  (@): include/_private/fsdk-depends-type.yml
+  filename:
+  - components/openssl.bst
 
 variables:
   cmake-local: >-

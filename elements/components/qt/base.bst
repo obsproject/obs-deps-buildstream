@@ -2,6 +2,7 @@ kind: cmake
 
 (@):
 - elements/include/qt.yml
+- elements/include/_private/qtbase-depends.yml
 
 # NOTE: Qt plugin-only dependencies should be put as build dependencies
 build-depends:
@@ -19,24 +20,6 @@ build-depends:
   - freedesktop-sdk.bst:components/xorg-lib-sm.bst
   - freedesktop-sdk.bst:components/xorg-lib-x11.bst
   - freedesktop-sdk.bst:components/xorg-lib-xcb.bst
-
-depends:
-  (>):
-  - freedesktop-sdk.bst:components/at-spi2-core.bst
-  - freedesktop-sdk.bst:components/fontconfig.bst
-  - freedesktop-sdk.bst:components/freetype.bst
-  - freedesktop-sdk.bst:components/glib.bst
-  - freedesktop-sdk.bst:components/harfbuzz.bst
-  - freedesktop-sdk.bst:components/libdbus.bst
-  - freedesktop-sdk.bst:components/libdrm.bst
-  - freedesktop-sdk.bst:components/libpng.bst
-  - freedesktop-sdk.bst:components/libproxy.bst
-  - freedesktop-sdk.bst:components/libxkbcommon.bst
-  - freedesktop-sdk.bst:components/mesa-headers.bst
-  - freedesktop-sdk.bst:components/openssl.bst
-  - freedesktop-sdk.bst:components/systemd-libs.bst
-  - freedesktop-sdk.bst:components/wayland.bst
-  - freedesktop-sdk.bst:components/zstd.bst
 
 variables:
   qt-element-name: base

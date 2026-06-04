@@ -1,0 +1,21 @@
+depends:
+  (<):
+  - junction: freedesktop-sdk.bst
+    (@): include/_private/fsdk-depends-type.yml
+    filename:
+    - public-stacks/runtime-minimal.bst
+    - components/at-spi2-core.bst
+    - components/fontconfig.bst
+    - components/freetype.bst
+    - components/glib.bst
+    - components/harfbuzz.bst
+    - components/libdbus.bst
+    - components/libdrm.bst
+    - components/libpng.bst
+    - components/libproxy.bst
+    - components/libxkbcommon.bst
+    - components/mesa-headers.bst
+    - components/openssl.bst
+    - components/systemd-libs.bst
+    - components/wayland.bst
+    - components/zstd.bst

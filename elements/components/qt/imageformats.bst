@@ -2,15 +2,12 @@ kind: cmake
 
 (@):
 - elements/include/qt.yml
+- elements/include/_private/depends-qtbase.bst.yml
 
 build-depends:
   (>):
   - freedesktop-sdk.bst:components/libtiff.bst
   - freedesktop-sdk.bst:components/libwebp.bst
-
-depends:
-  (>):
-  - components/qt/base.bst
 
 variables:
   qt-element-name: imageformats
