@@ -27,14 +27,6 @@ config:
       rm -f "%{install-root}%{datadir}/doc/rnnoise/"{README,AUTHORS,COPYING}
       rmdir --ignore-fail-on-non-empty "%{install-root}%{datadir}/doc"{/rnnoise,}
 
-public:
-  bst:
-    split-rules:
-      runtime:
-        (>):
-        - "%{datadir}"
-        - "%{datadir}/**"
-
 sources:
 - kind: git_repo
   url: github:xiph/rnnoise.git
