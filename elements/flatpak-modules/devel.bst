@@ -10,7 +10,9 @@ config:
     - doc
     - exec-blocklist
     - extra
+    - license
     - runtime
+    - sbom
 
 build-depends:
 - deps.bst
