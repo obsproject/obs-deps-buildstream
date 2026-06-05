@@ -83,6 +83,20 @@ variables:
     -DQT_ALLOW_SYMLINK_IN_PATHS=OFF
     -DQT_ALLOW_DOWNLOAD=OFF
 
+  # cmake/QtPublicSbomHelpers
+  qt-public-sbom-opts: >-
+    -DQT_GENERATE_SBOM=ON
+    -DQT_SBOM_GENERATE_SPDX_V2=ON
+    -DQT_SBOM_GENERATE_CYDX_V1_6=OFF
+    -DQT_SBOM_REQUIRE_GENERATE_CYDX_V1_6=OFF
+    -DQT_SBOM_GENERATE_SPDX_V2_JSON=ON
+    -DQT_SBOM_REQUIRE_GENERATE_SPDX_V2_JSON=ON
+    -DQT_SBOM_VERIFY_SPDX_V2=OFF
+    -DQT_SBOM_REQUIRE_VERIFY_SPDX_V2=OFF
+    -DQT_SBOM_VERIFY_CYDX_V1_6=OFF
+    -DQT_SBOM_REQUIRE_VERIFY_CYDX_V1_6=OFF
+    -DQT_SBOM_VERBOSE_CYDX_V1_6=OFF
+
   # configure.cmake (Architecture related)
   # NOTE: Qt's buildsystem does not look like following compiler flags for those
   qt-base-arch-features: >-
@@ -289,6 +303,7 @@ variables:
     %{qt-auto-detect-opts}
     %{qt-build-paths}
     %{qt-build-opts}
+    %{qt-public-sbom-opts}
     %{qt-base-features}
     %{qt-base-corelib-features}
     %{qt-base-tools-features}
