@@ -1,5 +1,5 @@
 kind: make
-description: FFmpeg component based on Freedesktop SDK version
+description: FFmpeg component based on the Freedesktop SDK config
 
 (@):
 - elements/include/_private/ffmpeg.yml
@@ -35,10 +35,13 @@ variables:
 public:
   bst:
     split-rules:
-      # Put FFmpeg examples as extra
-      extra:
-      - "%{datadir}"
-      - "%{datadir}/**"
+      devel:
+        (>):
+        - '%{datadir}/ffmpeg/examples'
+        - '%{datadir}/ffmpeg/examples/**'
+      obs-unneeded:
+        - '%{datadir}/ffmpeg/examples'
+        - '%{datadir}/ffmpeg/examples/**'
 
 sources:
 - kind: git_repo
