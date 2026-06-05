@@ -10,7 +10,6 @@ config:
     - debug
     - devel
     - doc
-    - exec-blocklist
     - extra
     - obs-unneeded
 
