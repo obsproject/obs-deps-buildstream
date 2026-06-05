@@ -10,6 +10,8 @@ depends:
   - components/libva.bst
 
 variables:
+  license-files: LICENSE
+
   cmake-local: >-
     -DENABLE_OPENCL=OFF
     -DENABLE_WAYLAND=OFF
@@ -23,10 +25,10 @@ public:
     split-rules:
       runtime:
         (>):
-        - "%{datadir}"
-        - "%{datadir}/**"
         - "%{libdir}/mfx"
         - "%{libdir}/mfx/**"
+        - "%{datadir}/mfx"
+        - "%{datadir}/mfx/**"
 
 sources:
 - kind: git_repo

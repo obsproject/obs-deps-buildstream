@@ -13,6 +13,7 @@ config:
     - license
     - runtime
     - sbom
+    - obs-unneeded
 
 build-depends:
 - deps.bst

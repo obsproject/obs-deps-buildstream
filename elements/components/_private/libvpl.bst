@@ -10,7 +10,9 @@ depends:
   - public-stacks/runtime-minimal.bst
 
 variables:
-  license-files-extra: third-party-programs.txt
+  license-files: >-
+    LICENSE
+    third-party-programs.txt
 
   cmake-local: >-
     -DBUILD_SHARED_LIBS=ON
@@ -28,18 +30,20 @@ config:
 public:
   bst:
     split-rules:
-      # Put the vars.sh script in etc and examples as extra
-      extra:
-      - "%{sysconfdir}"
-      - "%{sysconfdir}/**"
-      - "%{datadir}/vpl/examples"
-      - "%{datadir}/vpl/examples/**"
-      - "%{project_licensedir}/libvpl/examples"
-      - "%{project_licensedir}/libvpl/examples/**"
-      runtime:
+      devel:
         (>):
-        - "%{datadir}"
-        - "%{datadir}/**"
+        # vars.sh script in etc
+        - "%{sysconfdir}"
+        - "%{sysconfdir}/**"
+        - "%{datadir}/vpl/examples"
+        - "%{datadir}/vpl/examples/**"
+      obs-unneeded:
+        - "%{sysconfdir}"
+        - "%{sysconfdir}/**"
+        - "%{datadir}/vpl/examples"
+        - "%{datadir}/vpl/examples/**"
+        - "%{project_licensedir}/libvpl/examples"
+        - "%{project_licensedir}/libvpl/examples/**"
 
 sources:
 - kind: git_repo

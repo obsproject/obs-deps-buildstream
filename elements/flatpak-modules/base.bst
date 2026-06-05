@@ -10,6 +10,7 @@ config:
     - doc
     - exec-blocklist
     - extra
+    - obs-unneeded
 
 build-depends:
 - deps.bst
