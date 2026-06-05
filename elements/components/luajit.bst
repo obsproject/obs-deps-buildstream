@@ -17,18 +17,19 @@ variables:
 public:
   bst:
     split-rules:
-      exec-blocklist:
+      runtime:
+        (>):
+        - "%{libdir}/lua"
+        - "%{libdir}/lua/**"
+        - "%{datadir}/lua"
+        - "%{datadir}/lua/**"
+        - "%{datadir}/luajit-2.1"
+        - "%{datadir}/luajit-2.1/**"
+      obs-unneeded:
         - "%{bindir}"
         - "%{bindir}/**"
         - "%{debugdir}/bin"
         - "%{debugdir}/bin/**"
-
-      runtime:
-        (>):
-        - "%{datadir}"
-        - "%{datadir}/**"
-        - "%{libdir}/lua"
-        - "%{libdir}/lua/**"
 
 sources:
 - kind: git_repo
