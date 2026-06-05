@@ -14,20 +14,15 @@ depends:
 - components/usrsctp.bst
 
 variables:
+  # Skip examples licenses
+  license-files: LICENSE
+
   cmake-local: >-
     -DPREFER_SYSTEM_LIB=ON
     -DUSE_NICE=ON
     -DNO_WEBSOCKET=ON
     -DNO_EXAMPLES=ON
     -DNO_TESTS=ON
-
-public:
-  bst:
-    split-rules:
-      # Put the examples licenses as extra
-      extra:
-      - "%{project_licensedir}/libdatachannel/examples"
-      - "%{project_licensedir}/libdatachannel/examples/**"
 
 sources:
 - kind: git_repo
