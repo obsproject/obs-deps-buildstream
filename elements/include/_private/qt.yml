@@ -30,7 +30,7 @@ variables:
   qt-examplesdir: "%{datadir}/qt/examples"
   qt-testsdir: "%{datadir}/qt/tests"
   qt-descriptionsdir: "%{qt-archdatadir}/modules"
-  qt-sbomdir: "%{qt-archdatadir}/sbom"
+  qt-sbomdir: "%{sbomdir}"
 
 public:
   bst:
