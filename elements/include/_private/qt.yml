@@ -36,10 +36,72 @@ variables:
 public:
   bst:
     split-rules:
+      runtime:
+        - "%{qt-libdir}/lib*.so*"
+        - "%{qt-pluginsdir}"
+        - "%{qt-pluginsdir}/**"
+      devel:
+        # Binaries and executables
+        - "%{qt-bindir}"
+        - "%{qt-bindir}/**"
+        - "%{qt-libexecdir}"
+        - "%{qt-libexecdir}/**"
+        - "%{qt-libdir}/lib*.a"
+        # Other files
+        - "%{qt-includedir}"
+        - "%{qt-includedir}/**"
+        - "%{qt-libdir}/*.prl"
+        # TODO(Qt 6.11): Replace with qt-cmakedir
+        - "%{qt-libdir}/cmake"
+        - "%{qt-libdir}/cmake/**"
+        - "%{qt-libdir}/pkgconfig"
+        - "%{qt-libdir}/pkgconfig/**"
+        - "%{qt-mkspecsdir}"
+        - "%{qt-mkspecsdir}/**"
+        - "%{qt-descriptionsdir}"
+        - "%{qt-descriptionsdir}/**"
+        - "%{qt-archdatadir}/metatypes"
+        - "%{qt-archdatadir}/metatypes/**"
+        - "%{qt-qt-sharedir}/wayland"
+        - "%{qt-qt-sharedir}/wayland/**"
       doc:
-        (>):
         - "%{qt-docdir}"
         - "%{qt-docdir}/**"
+      # NOTE: qmake and extra rules could be improve with the help of cmake/QtMkspecHelpers.cmake
+      extra:
+        - "%{qt-mkspecsdir}/devices"
+        - "%{qt-mkspecsdir}/devices/**"
+        - "%{qt-mkspecsdir}/unsupported"
+        - "%{qt-mkspecsdir}/unsupported/**"
+        # Pass non-posix common
+        - "%{qt-mkspecsdir}/common/[!p]*"
+        - "%{qt-mkspecsdir}/common/[!p]*/**"
+        # Pass non-linux except lynxos
+        - "%{qt-mkspecsdir}/[!l]*-*"
+        - "%{qt-mkspecsdir}/[!l]*-*/**"
+        # Pass lynxos
+        - "%{qt-mkspecsdir}/lynxos-*"
+        - "%{qt-mkspecsdir}/lynxos-*/**"
+        # Pass linux with more than a compiler suffix
+        - "%{qt-mkspecsdir}/linux-*-*"
+        - "%{qt-mkspecsdir}/linux-*-*/**"
+        # Pass non-g++ and non-clang
+        - "%{qt-mkspecsdir}/linux-[!gc]*"
+        - "%{qt-mkspecsdir}/linux-[!gc]*/**"
+      sbom:
+        - "%{qt-sbomdir}"
+        - "%{qt-sbomdir}/*"
+      qmake:
+        - "%{qt-bindir}/qmake"
+        - "%{qt-libdir}/*.prl"
+        - "%{qt-mkspecsdir}/*.pri"
+        - "%{qt-mkspecsdir}/**/*.conf"
+        - "%{qt-mkspecsdir}/dummy"
+        - "%{qt-mkspecsdir}/dummy/**"
+        - "%{qt-mkspecsdir}/features"
+        - "%{qt-mkspecsdir}/features/**"
+        - "%{qt-mkspecsdir}/modules"
+        - "%{qt-mkspecsdir}/modules/**"
 
   cpe:
     product: "qt%{qt-element-name}"
