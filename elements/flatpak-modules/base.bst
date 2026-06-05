@@ -8,7 +8,6 @@ config:
     - devel
     - devtools
     - doc
-    - exec-blocklist
     - extra
     - obs-unneeded
 

@@ -19,11 +19,8 @@ variables:
 public:
   bst:
     split-rules:
-      exec-blocklist:
-      - "%{bindir}"
-      - "%{bindir}/**"
-      - "%{debugdir}/bin"
-      - "%{debugdir}/bin/**"
+      extra:
+        - "%{bindir}/srt-ffplay"
 
 sources:
 - kind: git_repo

@@ -8,7 +8,6 @@ config:
     - debug
     - devtools
     - doc
-    - exec-blocklist
     - extra
     - license
     - runtime
