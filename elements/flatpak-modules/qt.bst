@@ -8,6 +8,7 @@ config:
     - doc
     - extra
     - qmake
+    - obs-unneeded
 
 build-depends:
 - qt.bst

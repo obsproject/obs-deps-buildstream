@@ -102,6 +102,10 @@ public:
         - "%{qt-mkspecsdir}/features/**"
         - "%{qt-mkspecsdir}/modules"
         - "%{qt-mkspecsdir}/modules/**"
+      obs-unneeded:
+        # Vendored Wayland protocol XMLs are not needed
+        - "%{qt-qt-sharedir}/wayland"
+        - "%{qt-qt-sharedir}/wayland/**"
 
   cpe:
     product: "qt%{qt-element-name}"
