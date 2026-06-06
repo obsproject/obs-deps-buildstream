@@ -1,16 +1,4 @@
-# Arguments for tooling and script used when stripping debug symbols
-
 variables:
-  optimize-debug: "true"
-  compress-debug: "true"
-  debugdatadir: "%{debugdir}"
-  sourcedir: "%{debugdatadir}/source"
-  stripdir-suffix: "%{element-name}"
-
-  toolchain-prefixes: >-
-    /usr
-    %{prefix}
-
   strip-binaries-base: |
     OPTS=()
     if ! "%{optimize-debug}"; then

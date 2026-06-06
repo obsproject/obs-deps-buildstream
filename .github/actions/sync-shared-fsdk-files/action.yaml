@@ -34,8 +34,9 @@ runs:
           fi
         done
 
-        cp freedesktop-sdk/include/strip.yml include/strip.yml
-        sed -i "s/strip-binaries/strip-binaries-base/g" include/strip.yml
+        cp freedesktop-sdk/include/strip.yml include/_private/fsdk-strip-binaries-base.yml
+        # Extract strip-binaries as strip-binaries-base
+        sed -i -n '/strip-binaries: |/,/^$/{s/strip-binaries/&-base/g;p};1avariables:' include/_private/fsdk-strip-binaries-base.yml
 
         cp freedesktop-sdk/elements/include/ffmpeg.yml elements/include/_private/ffmpeg.yml
         # Remove public object

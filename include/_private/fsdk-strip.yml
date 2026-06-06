@@ -1,0 +1,16 @@
+# Extracted from freedesktop-sdk.bst:include/strip.yml
+(@): include/_private/fsdk-strip-binaries-base.yml
+
+variables:
+  strip-binaries: "%{strip-binaries-base}"
+  (?):
+    - platform == "flatpak":
+        # Modify Freedesktop SDK stripping options to be closer to Flatpak behavior
+        optimize-debug: "false" # No dwz optimization
+        # Move debug symbols files to the same place as a Flatpak build
+        strip-binaries: |
+          %{strip-binaries-base}
+          if [ -d "%{install-root}%{debugdir}%{appdir}" ]; then
+            mv %{install-root}%{debugdir}%{appdir}/* %{install-root}%{debugdir}/.
+            rmdir %{install-root}%{debugdir}%{appdir}
+          fi
