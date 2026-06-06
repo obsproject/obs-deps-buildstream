@@ -1,0 +1,6 @@
+variables:
+  meson-global: >-
+    --buildtype=plain
+    -Dauto_features=enabled
+    -Db_pie=true
+    -Ddefault_library=shared

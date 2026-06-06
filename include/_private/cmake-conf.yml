@@ -1,0 +1,14 @@
+variables:
+  cmake-prefix-path: "%{prefix}"
+  (?):
+    - platform == "flatpak":
+        cmake-prefix-path: "%{appdir}:/usr"
+
+  cmake-global: >-
+    -DCMAKE_PREFIX_PATH="%{cmake-prefix-path}"
+    -DCMAKE_BUILD_TYPE=RelWithDebInfo
+    -DCMAKE_C_FLAGS_RELWITHDEBINFO="-DNDEBUG"
+    -DCMAKE_CXX_FLAGS_RELWITHDEBINFO="-DNDEBUG"
+    -DCMAKE_POLICY_VERSION_MINIMUM=3.5
+  generator: Ninja
+  make-install: env DESTDIR="%{install-root}" cmake --install %{build-dir}
