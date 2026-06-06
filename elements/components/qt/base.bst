@@ -37,11 +37,11 @@ variables:
 
   # cmake/QtBuildPathsHelpers.cmake
   # NOTE: INSTALL_PUBLICBINDIR is purposefully left empty
-  # TODO(Qt 6.11): Add INSTALL_CMAKEDIR
   qt-build-paths: >-
     -DINSTALL_BINDIR=%{qt-bindir}
     -DINSTALL_INCLUDEDIR=%{qt-includedir}
     -DINSTALL_LIBDIR=%{qt-libdir}
+    -DINSTALL_CMAKEDIR=%{qt-cmakedir}
     -DINSTALL_MKSPECSDIR=%{qt-mkspecsdir}
     -DINSTALL_SHAREDIR=%{qt-sharedir}
     -DINSTALL_QT_SHAREDIR=%{qt-qt-sharedir}
@@ -59,7 +59,6 @@ variables:
     -DINSTALL_SBOMDIR=%{qt-sbomdir}
 
   # cmake/QtBuildOptionsHelpers.cmake
-  # TODO(Qt 6.11): Add QT_BUILD_DOC_SNIPPETS=OFF
   qt-build-opts: >-
     -DQT_BUILD_BENCHMARKS=OFF
     -DQT_BUILD_TESTS=OFF
@@ -67,6 +66,7 @@ variables:
     -DQT_BUILD_TESTS_BATCHED=OFF
     -DQT_BUILD_MANUAL_TESTS=OFF
     -DQT_BUILD_MINIMAL_STATIC_TESTS=OFF
+    -DQT_BUILD_DOC_SNIPPETS=OFF
     -DQT_BUILD_WASM_BATCHED_TESTS=OFF
     -DQT_BUILD_MINIMAL_ANDROID_MULTI_ABI_TESTS=OFF
     -DQT_BUILD_TOOLS_BY_DEFAULT=OFF
@@ -169,7 +169,7 @@ variables:
   # src/corelib/configure.cmake
   # NOTE: Many are skipped
   # NOTE: double-conversion and libb2 are built-in
-  qt-base-corelib-features: >- # TODO
+  qt-base-corelib-features: >-
     -DFEATURE_doubleconversion=ON
     -DFEATURE_system_doubleconversion=OFF
     -DFEATURE_glib=ON
@@ -179,11 +179,11 @@ variables:
     -DFEATURE_openssl_hash=OFF
 
   # src/tools/configure.cmake (Deployment section)
-  # TODO(Qt 6.11): Add FEATURE_wasmdeployqt=OFF
   # TODO(Qt 6.12): Add FEATURE_harmonydeployqt=OFF
   qt-base-tools-deployment-features: >-
     -DFEATURE_androiddeployqt=OFF
     -DFEATURE_macdeployqt=OFF
+    -DFEATURE_wasmdeployqt=OFF
     -DFEATURE_windeployqt=OFF
 
   # src/tools/configure.cmake
@@ -314,4 +314,4 @@ variables:
 sources:
 - kind: tar
   url: qt_archive:%{qt-api-version}/%{qt-version}/submodules/qtbase-everywhere-src-%{qt-version}.tar.xz
-  ref: 383dc907816338f0cba72088a524c07458dfc69ce684ca9132fcc4fe91c24b0b
+  ref: d9594a31228aa23ad6b531719a29b45f0f3989fe6c136d45767ea179f233c1ac
