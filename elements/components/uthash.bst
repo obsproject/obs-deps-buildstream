@@ -1,16 +1,15 @@
 kind: manual
 
 build-depends:
-- freedesktop-sdk.bst:public-stacks/buildsystem-make.bst
+- freedesktop-sdk.bst:public-stacks/runtime-minimal.bst
+
+variables:
+  strip-binaries: ''
 
 config:
   install-commands:
-  - |
-    install -dm755 %{install-root}%{includedir}
-
-    for h in src/*.h; do
-      install -m644 ${h} %{install-root}%{includedir}/
-    done
+  - mkdir -p "%{install-root}%{includedir}"
+  - cp src/* "%{install-root}%{includedir}/."
 
 sources:
 - kind: git_repo
