@@ -6,8 +6,8 @@ depends: []
 
 variables:
   qt-element-name: unknown
-  qt-api-version: "6.10"
-  qt-version: "6.10.3"
+  qt-api-version: "6.11"
+  qt-version: "6.11.1"
 
   license-element-name: "qt%{qt-element-name}"
   # NOTE: This is similar to what KDE does for their runtime
@@ -16,7 +16,7 @@ variables:
   qt-bindir: "%{bindir}"
   qt-includedir: "%{includedir}/qt"
   qt-libdir: "%{libdir}"
-  # TODO(Qt 6.11): qt-cmakedir: "%{qt-libdir}/cmake"
+  qt-cmakedir: "%{qt-libdir}/cmake"
   qt-mkspecsdir: "%{libdir}/qt/mkspecs"
   qt-sharedir: "%{datadir}"
   qt-qt-sharedir: "%{qt-sharedir}/qt"
@@ -51,9 +51,8 @@ public:
         - "%{qt-includedir}"
         - "%{qt-includedir}/**"
         - "%{qt-libdir}/*.prl"
-        # TODO(Qt 6.11): Replace with qt-cmakedir
-        - "%{qt-libdir}/cmake"
-        - "%{qt-libdir}/cmake/**"
+        - "%{qt-cmakedir}"
+        - "%{qt-cmakedir}/**"
         - "%{qt-libdir}/pkgconfig"
         - "%{qt-libdir}/pkgconfig/**"
         - "%{qt-mkspecsdir}"
@@ -62,6 +61,8 @@ public:
         - "%{qt-descriptionsdir}/**"
         - "%{qt-archdatadir}/metatypes"
         - "%{qt-archdatadir}/metatypes/**"
+        - "%{qt-qt-sharedir}/json_schema"
+        - "%{qt-qt-sharedir}/json_schema/**"
         - "%{qt-qt-sharedir}/wayland"
         - "%{qt-qt-sharedir}/wayland/**"
       doc:
@@ -69,6 +70,7 @@ public:
         - "%{qt-docdir}/**"
       # NOTE: qmake and extra rules could be improve with the help of cmake/QtMkspecHelpers.cmake
       extra:
+        - "%{qt-libexecdir}/qt-android-runner.py"
         - "%{qt-mkspecsdir}/devices"
         - "%{qt-mkspecsdir}/devices/**"
         - "%{qt-mkspecsdir}/unsupported"
@@ -103,6 +105,8 @@ public:
         - "%{qt-mkspecsdir}/modules"
         - "%{qt-mkspecsdir}/modules/**"
       obs-unneeded:
+        - "%{qt-qt-sharedir}/json_schema"
+        - "%{qt-qt-sharedir}/json_schema/**"
         # Vendored Wayland protocol XMLs are not needed
         - "%{qt-qt-sharedir}/wayland"
         - "%{qt-qt-sharedir}/wayland/**"
