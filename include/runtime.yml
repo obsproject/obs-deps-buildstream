@@ -1,3 +1,4 @@
 (@):
 - freedesktop-sdk.bst:include/runtime.yml
+- include/install-dirs.yml
 - include/_private/fsdk-strip.yml
