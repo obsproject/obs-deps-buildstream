@@ -6,11 +6,10 @@ description: Composition to allow only shared libraries and debug symbols from n
 config:
   exclude:
     - devel
-    - devtools
     - doc
     - extra
     - obs-unneeded
 
 build-depends:
-- deps.bst
+- non-devtools.bst
 - manifests/deps.bst
