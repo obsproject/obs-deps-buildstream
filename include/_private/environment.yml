@@ -1,0 +1,11 @@
+# Environment variables for the build
+LC_ALL: en_US.UTF-8
+
+(?):
+  - platform == "flatpak":
+      # Set Flatpak application and runtime paths
+      PATH: "%{appdir}/bin:/usr/bin:/bin:%{appdir}/sbin:/usr/sbin:/sbin"
+      # Add Flatpak application library path
+      LD_LIBRARY_PATH: "%{appdir}/lib"
+      # Set pkg-config paths with Flatpak application paths
+      PKG_CONFIG_PATH: "%{appdir}/lib/pkgconfig:%{appdir}/share/pkgconfig:/usr/lib/%{gcc_triplet}/pkgconfig:/usr/share/pkgconfig"
