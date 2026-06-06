@@ -1,0 +1,13 @@
+variables:
+  sbomdir: "%{prefix}/sbom"
+
+  (?):
+    - platform == "flatpak":
+        # Set Flatpak application prefix
+        appdir: "/app"
+        prefix: "%{appdir}"
+        sysconfdir: "%{appdir}/etc"
+        localstatedir: "%{appdir}/var"
+        lib: "lib"
+        # Remove %{project-name} subfolder for licenses
+        project_licensedir: "%{licensedir}"
