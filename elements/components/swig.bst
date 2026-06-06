@@ -20,17 +20,6 @@ variables:
     --with-luaincl=%{includedir}/luajit-2.1
     --with-python3
 
-public:
-  bst:
-    split-rules:
-      devtools:
-        - "%{bindir}"
-        - "%{bindir}/**"
-        - "%{debugdir}"
-        - "%{debugdir}/**"
-        - "%{datadir}"
-        - "%{datadir}/**"
-
 sources:
 - kind: tar
   url: sourceforge_prdl:swig/swig-4.0.2.tar.gz

@@ -6,7 +6,6 @@ description: Composition to allow only headers, pkg-config files and CMake packa
 config:
   exclude:
     - debug
-    - devtools
     - doc
     - extra
     - license
@@ -15,4 +14,4 @@ config:
     - obs-unneeded
 
 build-depends:
-- deps.bst
+- non-devtools.bst
