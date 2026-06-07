@@ -1,0 +1,29 @@
+# Split rule domains
+
+devel:
+  - "%{includedir}"
+  - "%{includedir}/**"
+  - "%{libdir}/pkgconfig"
+  - "%{libdir}/pkgconfig/**"
+  - "%{datadir}/pkgconfig"
+  - "%{datadir}/pkgconfig/**"
+  - "%{datadir}/cmake"
+  - "%{datadir}/cmake/**"
+  - "%{libdir}/cmake"
+  - "%{libdir}/cmake/**"
+  - "%{libdir}/*.a"
+
+doc:
+  - "%{datadir}/man"
+  - "%{datadir}/man/**"
+extra: []
+
+license:
+  - "%{licensedir}"
+  - "%{licensedir}/**"
+
+sbom:
+  - "%{sbomdir}"
+  - "%{sbomdir}/*"
+
+obs-unneeded: []
