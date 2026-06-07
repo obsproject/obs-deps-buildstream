@@ -1,5 +1,16 @@
 # Environment variables for the build
 LC_ALL: en_US.UTF-8
+PYTHON: "/usr/bin/python3"
+
+# Python documentation "Hash randomization is intended to provide
+# protection against a denial-of-service caused by carefully-chosen
+# inputs that exploit the worst case performance of a dict
+# construction, O(n^2) complexity. See
+# http://www.ocert.org/advisories/ocert-2011-003.html for details."
+# The attack case isn't relevant for code compilation and this breaks
+# reproducible pycs. Setting seed to 0 is the canonical way to disable
+# hash randomization
+PYTHONHASHSEED: 0
 
 (?):
   - platform == "flatpak":
