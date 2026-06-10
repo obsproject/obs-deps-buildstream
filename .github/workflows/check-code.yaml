@@ -43,7 +43,7 @@ jobs:
         id: check
         uses: obsproject/obs-studio/.github/actions/check-changes@19646f9434857120625524fbf15f254efa1afecc
         with:
-          checkGlob: "'${{ env.WORKFLOW_FILEPATH }}' 'elements/plugins/*' 'elements/freedesktop-sdk.bst' 'include/strip.yml'"
+          checkGlob: "'${{ env.WORKFLOW_FILEPATH }}' 'elements/freedesktop-sdk.bst' 'elements/include/_private/ffmpeg.yml' 'elements/plugins/*' 'include/_private/fsdk-strip-binaries-base.yml'"
           diffFilter: 'ACM'
 
       - name: Sync shared files
