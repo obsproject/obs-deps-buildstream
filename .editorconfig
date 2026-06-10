@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2026 OBS Project
+#
+# SPDX-License-Identifier: MIT
+
 root = true
 
 [*]

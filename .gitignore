@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2026 OBS Project
+#
+# SPDX-License-Identifier: MIT
+
 # Ignore BuildStream cache folder
 .bst
 .bst/*
