@@ -1,0 +1,43 @@
+version = 1
+
+# BuildStream project
+[[annotations]]
+path = ["project.conf", "elements/**", "include/**"]
+SPDX-FileCopyrightText = "2026 OBS Project"
+SPDX-License-Identifier = "MIT"
+
+# GHA files
+[[annotations]]
+path = [".github/**"]
+SPDX-FileCopyrightText = "2026 OBS Project"
+SPDX-License-Identifier = "MIT"
+
+# FFmpeg patches
+[[annotations]]
+path = [
+    "patches/ffmpeg/0001-flvdec-handle-unknown.patch",
+    "patches/ffmpeg/0002-libaomenc-presets.patch",
+]
+SPDX-FileCopyrightText = "2022 OBS Project"
+SPDX-License-Identifier = "MIT"
+
+# Intel Media SDK patches
+[[annotations]]
+path = [
+    "patches/intel-media-sdk/010-intel-media-sdk-fix-reproducible-build.patch",
+    "patches/intel-media-sdk/020-intel-media-sdk-gcc13-fix.patch",
+]
+SPDX-FileCopyrightText = "intel-media-sdk contributors"
+SPDX-License-Identifier = "MIT"
+
+# MbedTLS patches
+[[annotations]]
+path = ["patches/mbedtls/0001-array-bounds-error-fix.patch"]
+SPDX-FileCopyrightText = "2024 Rany Hany <rany_hany@riseup.net>"
+SPDX-License-Identifier = "Apache-2.0 OR GPL-2.0-or-later"
+
+# libsrt patches
+[[annotations]]
+path = ["patches/srt/0001-enable-proper-cmake-build-types.patch"]
+SPDX-FileCopyrightText = "2022 OBS Project"
+SPDX-License-Identifier = "MIT"

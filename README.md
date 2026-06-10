@@ -1,3 +1,9 @@
+<!--
+SPDX-FileCopyrightText: 2026 OBS Project
+
+SPDX-License-Identifier: MIT
+-->
+
 # obs-deps-buildstream
 
 This repository is a [BuildStream](https://buildstream.build/) project to build OBS Studio dependencies for Flatpak.
