@@ -21,4 +21,4 @@ depends:
 - components/uthash.bst
 - components/websocketpp.bst
 - components/x264.bst
-- qsv-maybe.bst
+- components/qsv-maybe.bst
