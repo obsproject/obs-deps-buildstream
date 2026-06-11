@@ -1,8 +1,0 @@
-# Includes qtbase depends if needed
-depends:
-  (<):
-  - components/qt/base.bst
-
-(?):
-- platform == "flatpak":
-    (@): elements/include/_private/qtbase-depends.yml

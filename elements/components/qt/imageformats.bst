@@ -1,13 +1,20 @@
 kind: cmake
 
-(@):
-- elements/include/_private/qt.yml
-- elements/include/_private/depends-qtbase.bst.yml
+(@): elements/include/_private/qt.yml
+
+(?):
+- platform == "flatpak":
+    build-depends:
+      (>):
+      - fsdk-depends-stacks/qtbase.bst
 
 build-depends:
   (>):
   - freedesktop-sdk.bst:components/libtiff.bst
   - freedesktop-sdk.bst:components/libwebp.bst
+
+depends:
+- components/qt/base.bst
 
 variables:
   qt-element-name: imageformats

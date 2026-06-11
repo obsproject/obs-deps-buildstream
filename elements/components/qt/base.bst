@@ -1,8 +1,6 @@
 kind: cmake
 
-(@):
-- elements/include/_private/qt.yml
-- elements/include/_private/qtbase-depends.yml
+(@): elements/include/_private/qt.yml
 
 # NOTE: Qt plugin-only dependencies should be put as build dependencies
 build-depends:
@@ -20,6 +18,10 @@ build-depends:
   - freedesktop-sdk.bst:components/xorg-lib-sm.bst
   - freedesktop-sdk.bst:components/xorg-lib-x11.bst
   - freedesktop-sdk.bst:components/xorg-lib-xcb.bst
+
+depends:
+- (@): include/_private/fsdk-depends-type.yml
+  filename: fsdk-depends-stacks/qtbase.bst
 
 variables:
   qt-element-name: base

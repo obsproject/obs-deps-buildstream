@@ -1,8 +1,15 @@
 kind: cmake
 
-(@):
-- elements/include/_private/qt.yml
-- elements/include/_private/depends-qtbase.bst.yml
+(@): elements/include/_private/qt.yml
+
+(?):
+- platform == "flatpak":
+    build-depends:
+      (>):
+      - fsdk-depends-stacks/qtbase.bst
+
+depends:
+- components/qt/base.bst
 
 variables:
   qt-element-name: svg
