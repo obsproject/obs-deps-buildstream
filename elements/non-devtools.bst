@@ -14,7 +14,7 @@ depends:
 - components/luajit.bst
 - components/mbedtls.bst
 - components/nlohmann-json.bst
-- components/nv-codec.bst
+- components/nv-codec-headers.bst
 - components/rnnoise.bst
 - components/simde.bst
 - components/srt.bst
