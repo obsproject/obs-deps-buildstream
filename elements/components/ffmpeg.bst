@@ -9,10 +9,11 @@ build-depends:
   - components/nv-codec.bst
 
 depends:
-  (>):
-  - components/librist.bst
-  - components/srt.bst
-  - components/x264.bst
+- (@): include/_private/fsdk-depends-type.yml
+  filename: fsdk-depends-stacks/ffmpeg.bst
+- components/librist.bst
+- components/srt.bst
+- components/x264.bst
 
 variables:
   conf-extra: >-
