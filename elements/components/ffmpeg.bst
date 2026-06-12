@@ -6,7 +6,7 @@ description: FFmpeg component based on the Freedesktop SDK config
 
 build-depends:
   (>):
-  - components/nv-codec.bst
+  - components/nv-codec-headers.bst
 
 depends:
 - (@): include/_private/fsdk-depends-type.yml
