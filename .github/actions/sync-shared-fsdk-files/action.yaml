@@ -34,20 +34,17 @@ runs:
           fi
         done
 
-        cp freedesktop-sdk/include/strip.yml include/_private/fsdk-strip-binaries-base.yml
         # Extract strip-binaries as strip-binaries-base
-        sed -i -n '/strip-binaries: |/,/^$/{s/strip-binaries/&-base/g;p};1avariables:' include/_private/fsdk-strip-binaries-base.yml
+        sed -n '/strip-binaries: |/,/^$/{s/strip-binaries/&-base/g;p};1avariables:' \
+          freedesktop-sdk/include/strip.yml > include/_private/fsdk-strip-binaries-base.yml
 
-        cp freedesktop-sdk/elements/include/ffmpeg.yml elements/include/_private/ffmpeg.yml
-        # Remove public object
-        sed -i '/public:/,/^$/d' elements/include/_private/ffmpeg.yml
-        # Remove sources object
-        sed -i '/sources:/,/^$/d' elements/include/_private/ffmpeg.yml
-        # Apply junction name to build-depends deps
-        sed -i -E '0,/^depends:/s%(components|public-stacks)/%freedesktop-sdk.bst:&%g' elements/include/_private/ffmpeg.yml
-        # Apply junction name with our type include to depends deps
-        sed -i -e '/^depends:/a\-\ junction:\ freedesktop-sdk.bst\n  (@): include/_private/fsdk-depends-type.yml\n  filename:' \
-          -e '/^depends:/,/^$/s/- /  &/g' elements/include/_private/ffmpeg.yml
+        # Extract FFmpeg dependencies
+        sed -E -n '/^depends:$/,/^$/{s%(components|public-stacks)/%freedesktop-sdk.bst:&%g;p}' \
+          freedesktop-sdk/elements/include/ffmpeg.yml > elements/include/_private/fsdk-ffmpeg-depends.yml
+
+        # Copy element/include/ffmpeg.yml without depends, public and sources
+        sed -E -n '0,/^variables:$/s%(components|public-stacks)/%freedesktop-sdk.bst:&%g;{/^depends:$/,/^$/d;/^public:$/,/^$/d;/^sources:$/,/^$/d;p}' \
+          freedesktop-sdk/elements/include/ffmpeg.yml > elements/include/_private/ffmpeg.yml
 
         tag="${{ steps.parse-ref.outputs.tag }}"
         prefix="freedesktop-sdk-"
