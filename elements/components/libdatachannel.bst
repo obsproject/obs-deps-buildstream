@@ -5,12 +5,8 @@ build-depends:
 - components/plog.bst
 
 depends:
-- junction: freedesktop-sdk.bst
-  (@): include/_private/fsdk-depends-type.yml
-  filename:
-  - components/libnice.bst
-  - components/libsrtp2.bst
-  - components/openssl.bst
+- (@): include/_private/fsdk-depends-type.yml
+  filename: fsdk-depends-stacks/libdatachannel.bst
 - components/usrsctp.bst
 
 variables:
