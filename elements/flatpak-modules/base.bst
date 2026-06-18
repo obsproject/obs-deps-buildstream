@@ -1,7 +1,10 @@
 kind: compose
 description: Composition to allow only shared libraries and debug symbols from non-Qt dependencies
 
-(@): include/_private/fp-modules-common.yml
+(?):
+- platform != "flatpak":
+    (!): |
+      This element is not buildable for non-flatpak platform.
 
 config:
   exclude:
