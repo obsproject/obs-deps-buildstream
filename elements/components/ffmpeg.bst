@@ -41,14 +41,14 @@ public:
         - '%{datadir}/ffmpeg/examples'
         - '%{datadir}/ffmpeg/examples/**'
       obs-unneeded:
-        - '%{datadir}/ffmpeg/examples'
-        - '%{datadir}/ffmpeg/examples/**'
+      - '%{datadir}/ffmpeg/examples'
+      - '%{datadir}/ffmpeg/examples/**'
 
 sources:
 - kind: git_repo
   url: github:FFmpeg/FFmpeg.git
-  track: n8.1
-  ref: 9047fa1b084f76b1b4d065af2d743df1b40dfb56
+  track: n8.1.2
+  ref: 38b88335f99e76ed89ff3c93f877fdefce736c13
 - kind: patch
   path: patches/ffmpeg/0001-flvdec-handle-unknown.patch
 - kind: patch
