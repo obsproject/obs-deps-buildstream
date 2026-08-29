@@ -8,9 +8,9 @@ sources:
   # - Check elements/include/_private/ffmpeg.yml with elements/include/ffmpeg.yml
   # - Common plugins in their elements/plugins
   # - Check out elements conf and enviroments if there is something that could be ported
-  track: freedesktop-sdk-25.08*
+  track: freedesktop-sdk-26.08*
   ref-format: git-describe
-  ref: freedesktop-sdk-25.08.17-0-g4535d0fa4894628fdf49999ac5c2aacd138a6035
+  ref: freedesktop-sdk-26.08.1-0-gb02b59ffe19a49a402f357fd5fcb1d552ebc50d7
 
 config:
   options:
