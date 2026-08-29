@@ -3,6 +3,7 @@ import logging
 import os
 import re
 import sys
+
 import yaml
 
 
@@ -37,7 +38,17 @@ def main() -> int:
 
             source = list(
                 filter(
-                    lambda s: "kind" in s and s["kind"] == "git_tag", element["sources"]
+                    lambda s: (
+                        "kind" in s
+                        and (
+                            s["kind"] == "git_tag"
+                            or (
+                                s["kind"] == "git_repo"
+                                and s["ref-format"] == "git-describe"
+                            )
+                        )
+                    ),
+                    element["sources"],
                 )
             )
 
@@ -70,13 +81,13 @@ def main() -> int:
                     with open(os.environ["GITHUB_OUTPUT"], "a") as output:
                         output.write(f"tag={tag}\n")
                         output.write(f"commit={commit}\n")
-                except IOError:
+                except OSError:
                     logger.error("❌ Unable to output in GITHUB_OUTPUT")
                     return 2
 
             logger.info(f"✅ Ref has tag '{tag}' and commit '{commit}'")
 
-    except IOError:
+    except OSError:
         logger.error(f"❌ Unable to read BuildStream element file '{bst_file}'")
         return 2
 
