@@ -26,5 +26,5 @@ public:
 sources:
 - kind: git_repo
   url: github:intel/vpl-gpu-rt.git
-  track: intel-onevpl-26.1.5
-  ref: c74d193957c059c4850726dbfc5772b8d9d18c4b
+  track: intel-onevpl-26.2.4
+  ref: 4a0c2b926e09e8c1c10db73bcefbbfb395cd1430
