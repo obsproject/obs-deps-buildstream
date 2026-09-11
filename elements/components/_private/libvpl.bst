@@ -38,15 +38,15 @@ public:
         - "%{datadir}/vpl/examples"
         - "%{datadir}/vpl/examples/**"
       obs-unneeded:
-        - "%{sysconfdir}"
-        - "%{sysconfdir}/**"
-        - "%{datadir}/vpl/examples"
-        - "%{datadir}/vpl/examples/**"
-        - "%{project_licensedir}/libvpl/examples"
-        - "%{project_licensedir}/libvpl/examples/**"
+      - "%{sysconfdir}"
+      - "%{sysconfdir}/**"
+      - "%{datadir}/vpl/examples"
+      - "%{datadir}/vpl/examples/**"
+      - "%{project_licensedir}/libvpl/examples"
+      - "%{project_licensedir}/libvpl/examples/**"
 
 sources:
 - kind: git_repo
   url: github:intel/libvpl.git
-  track: v2.16.0
-  ref: 778a66d6c6537f08eabb91955dbbf1bce3812894
+  track: v2.17.0
+  ref: d77f9195cf495b937631607333288fd917ae8939
