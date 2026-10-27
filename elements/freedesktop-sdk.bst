@@ -10,7 +10,7 @@ sources:
   # - Check out elements conf and enviroments if there is something that could be ported
   track: freedesktop-sdk-26.08*
   ref-format: git-describe
-  ref: freedesktop-sdk-26.08.3-0-gd0c0b597d58f8cc14ee26c427aec1be13c6a313e
+  ref: freedesktop-sdk-26.08.4-0-g114ae909ec9881958bd507c8b4414aa33f758d2b
 
 config:
   options:
